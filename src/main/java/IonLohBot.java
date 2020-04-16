@@ -17,16 +17,39 @@ public class IonLohBot extends TelegramLongPollingBot {
         SendDice sendDice = new SendDice().setChatId(update.getMessage().getChatId());
         DeleteMessage deleteMessage = new DeleteMessage().setChatId(update.getMessage().getChatId())
                 .setMessageId(update.getMessage().getMessageId());
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayListIon = new ArrayList<String>();
+        ArrayList<String> arrayListSergiu = new ArrayList<String>();
         Random random = new Random(System.currentTimeMillis());
         if (update.hasMessage() && update.getMessage().hasText()) {
             if (updmess.contains("ion")) {
-                arrayList.add("Ion - loh");
-                arrayList.add("Ion - bezdari");
-                message.setText(arrayList.get(random.nextInt(arrayList.size())));
+                arrayListIon.add("Ion - loh");
+                arrayListIon.add("Ion - bezdari");
+                arrayListIon.add("Ion - animeshnik");
+                arrayListIon.add("Ion - brosateli klinkov");
+                arrayListIon.add("Ion - Ariși na mide");
+                arrayListIon.add("Ion - Meepo bezdari");
+                message.setText(arrayListIon.get(random.nextInt(arrayListIon.size())));
             }
             if (updmess.contains("mihai")) {
                 message.setText("btw ,am auzit ca mihai ghenii, imho.");
+            }
+            if (updmess.contains("sergiu")) {
+                arrayListSergiu.add("Sergiu - ruiner");
+                arrayListSergiu.add("Sergiu - bezdari");
+                arrayListSergiu.add("Sergiu - animeshnik");
+                arrayListSergiu.add("Sergiu - tiktoker");
+                message.setText(arrayListSergiu.get(random.nextInt(arrayListSergiu.size())));
+            }
+            if (updmess.contains("rules")){
+                message.setText("Equality.");
+            }
+            if (updmess.contains("5x5")){
+                message.setText("Sergiu , sobiraesh ili pustie slova ?");
+            }
+            if (updmess.contains("dota") || (updmess.contains("doka"))) {
+                message.setText("dota - dlia musara");
+                message.setText("dota - ne igra");
+                message.setText("dota - pamoika");
             }
             try {
                 execute(message);
@@ -41,7 +64,8 @@ public class IonLohBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
             }
-            if (updmess.contains("mihai") && updmess.contains("loh") || updmess.contains("anime")){
+            if (updmess.contains("mihai") && updmess.contains("loh") || updmess.contains("anime")
+                    || updmess.contains("anima")){
                 try {
                     execute(deleteMessage);
                 } catch (TelegramApiException e) {
