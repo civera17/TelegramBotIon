@@ -88,6 +88,6 @@ public class IonLohBot extends TelegramLongPollingBot {
     }
 
     public String getBotToken() {
-        return "1031934675:AAFOS33W0NAG9qMZV5YpRqB8SBg4__w_iDY";
+        return "token";
     }
 }
